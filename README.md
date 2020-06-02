@@ -3,7 +3,7 @@ Toolnut is the little script designed to speed up the set-up process after insta
 
 ## Requirements
 
-To install and use you only need git, python3 and 10 to 15 seconds.
+To install and use you only need git, python3, and 10 to 15 seconds.
 
 ### How to download and install
 
@@ -11,21 +11,21 @@ First thing you'll need to do is install python3:
 ```
 sudo apt-get install python3
 ```
-Next thing you would like to do is clone this repository.To do this you need to have installed git:
+The next thing you would like to do is clone this repository. To do this you need to have git installed:
 ```
 sudo apt-get install git
 ```
-To make sure git is installed correctly, simly run:
+To make sure git is installed correctly, simply run:
 ```
 git --version  
 ```
-Only thing thats letf for you to do is clone the repository
+The only thing that's left for you to do is to clone the repository
 ```
 git clone https://github.com/Stefanapps1/toolnut.git
 ```
-Congrats! You successfully isntalled Toolnut
+Congrats! You successfully installed Toolnut
 
-To run script simply go to directory where you installed it and type:
+To run script simply go to the directory where you installed it and type:
 ```
 sudo python3 toolnut.py
 ```
