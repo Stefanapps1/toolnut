@@ -2,20 +2,21 @@ import subprocess
 import os
 
 
+update_var = "sudo apt-get update ; sudo apt-get upgrade -y"
+update_list = ["sudo apt-get update", "sudo apt-get upgrade -y"]
+
+
 def run_command(cmd):
     subprocess.call(cmd, shell=True)
-
-
-def update_all():
-    subprocess.call("sudo apt-get update && sudo apt-get upgrade -y", shell=True)
-
-
-update_var = "sudo apt-get update && sudo apt-get upgrade -y"
 
 
 def run_commands(cmd: list):
     for i in range(len(cmd)):
         subprocess.call(cmd[i], shell=True)
+
+
+def update_all():
+    run_commands(update_list)
 
 
 def option_list(opt):
@@ -229,11 +230,13 @@ def software():
             run_command("sudo apt-get install -y empathy")
 
     def d_env():
-        opt_list = ["Cinnamon", "Mate", "GNOME", "KDE"]
+        opt_list = ["Cinnamon", "Mate", "GNOME", "KDE", "LXQT"]
         option_list(opt_list)
         choice = input("Select Desktop Environment: ")
         if choice == "1":
             repo_install("ppa:embrosyn/cinnamon", "cinnamon-desktop-environment lightdm")
+        elif choice == "5":
+            run_command("sudo apt-get install -y lxqt sddm")
         else:
             run_command("sudo apt install tasksel")
             de = ""
@@ -243,7 +246,7 @@ def software():
                 de = "ubuntu-desktop"
             elif choice == "4":
                 de = "kubuntu-desktop"
-            run_command(str("sudo tasksel install" + de))
+            run_commands(["sudo apt install -y tasksel", str("sudo tasksel install " + de)])
 
     def m_tools():
         opt_list = ["GNOME Tweak Tool", "Stacer"]
@@ -260,7 +263,8 @@ def software():
         option_list(opt_list)
         choice = input("Select Terminal: ")
         if choice == "5":
-            run_command("wget -P $HOME/Downloads https://download.enlightenment.org/rel/apps/terminology/terminology-1.7.0.tar.xz")
+            #run_command("wget -P $HOME/Downloads https://download.enlightenment.org/rel/apps/terminology/terminology-1.7.0.tar.xz")
+            print("feature is coming...")
         else:
             if choice == "1":
                 terminal = "gnome-terminal"
@@ -270,7 +274,7 @@ def software():
                 terminal = "terminator"
             elif choice == "4":
                 terminal = "guake"
-            run_command(str("sudo tasksel install" + terminal))
+            run_command(str("sudo apt-get install -y " + terminal))
 
 
     opt_list = ["Tools", "Programming languages", "Torrent Clients", "Commandline Editors", "Download Manager",
@@ -304,4 +308,3 @@ def main_func():
 
 
 main_func()
-
