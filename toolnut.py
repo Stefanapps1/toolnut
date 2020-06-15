@@ -56,7 +56,7 @@ def free():
 
 
 def shutdown():
-    run_command("sudo shutdown")
+    run_command("sudo shutdown now")
 
 
 def fast_apt():
